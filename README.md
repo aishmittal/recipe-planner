@@ -29,5 +29,5 @@ where users can see the complete instructions to prepare that recipe.
 
 
 
-### Github Page Link
+### Website Link
 [Recipe-Planner](http://aishmittal.github.io/recipe-planner)
