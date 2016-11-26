@@ -1,6 +1,6 @@
 # Recipe-Planner
-### Plan your recipes quickly
-Recipe Planner is a web app developed using AngularJS and Angular Material. A food database(Yummly) API's are 
+###_Plan your recipes quickly_
+> Recipe Planner is a web app developed using AngularJS and Angular Material. A food database(Yummly) API's are 
 used to produce the search results. It allows users to search for the specific recipes according to their requirements 
 such as Recipe name, Max cooking time, Ingredients they have or the ingredients they don't have, Allergies, Specific diets, 
 Cuisines, Courses, Holidays/Season specific. after entering these details users can see the recipes matching the search 
