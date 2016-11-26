@@ -24,7 +24,7 @@
                 $http({
                     method:'GET',
                     url: queryString,
-                    params:params})
+                    headers:params})
                 .then(function(response) {
                     $rootScope.$broadcast('endProgressbar');
                     $scope.recipe= response.data;
