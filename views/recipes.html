@@ -9,7 +9,8 @@
 
 <div layout="row" layout-align="space-around" layout-margin  layout-wrap flex="100">
     <div md-whiteframe="4dp" layout="row" flex="20" flex-xs="80" flex-sm="30" layout-align="center start" ng-repeat='recipe in recipes' class="recipe-bg">
-        <a data-ng-href="/recipes/{{recipe.id}}" target="_blank">
+
+        <a data-ng-href="recipe-planner/#/recipes/{{recipe.id}}" target="_blank">
         <div layout="row" layout-align="center center" flex layout-margin>
         <div layout="column" layout-align="start center">
             
@@ -52,7 +53,7 @@
          Sorry, No results found you can enjoy this or go back.
      </div>
      <div layout="row">
-         <a href="/"><md-button class="md-raised md-warn">Go Back</md-button></a>
+         <a href="recipe-planner/#"><md-button class="md-raised md-warn">Go Back</md-button></a>
      </div>
  </div>
 </div>
