@@ -38,7 +38,7 @@ body {
 .background-page{
   /* Set rules to fill background */
 
-  background-image: url("../images/dessert_fruit_cream_cream_104887_1680x1050.jpg");
+  background-image: url("../recipe-planner/images/dessert_fruit_cream_cream_104887_1680x1050.jpg");
   min-height: 100%;
   min-width: 100%;
   background-attachment: fixed;
