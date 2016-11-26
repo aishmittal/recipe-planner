@@ -2,7 +2,7 @@
     webapp.directive('wuPagination', function () {
         return {
             restrict: 'AE',
-            templateUrl: 'views/directives/wuPagination.html',
+            templateUrl: '../recipe-planner/views/directives/wuPagination.html',
             scope: {},
             controller: [
                 '$scope',
