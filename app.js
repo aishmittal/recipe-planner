@@ -43,7 +43,7 @@ webapp.config([
             redirectTo: "/"
         });
 
-        $locationProvider.html5Mode();
+        $locationProvider.html5Mode(true);
 
         $mdThemingProvider.theme('default')
         .primaryPalette('deep-purple')
