@@ -31,13 +31,13 @@ webapp.config([
     function($routeProvider, $locationProvider, $mdThemingProvider, $mdIconProvider, localStorageServiceProvider, $location) {
 
         $routeProvider.when('/', {
-            templateUrl: "views/homepage.html",
+            templateUrl: "../recipe-planner/views/homepage.html",
             controller: "HomeController"
         }).when('/recipes', {
-            templateUrl: 'views/recipes.html',
+            templateUrl: '../recipe-planner/views/recipes.html',
             controller: 'RecipeController'
         }).when('/recipes/:id', {
-            templateUrl: 'views/recipeDetails.html',
+            templateUrl: '../recipe-planner/views/recipeDetails.html',
             controller: 'RecipeDetailsController'
         }).otherwise({
             redirectTo: "/"
