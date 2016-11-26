@@ -18,7 +18,7 @@
          factory.queryString="";
          factory.APIparams={
              X-Yummly-App-ID  :'d3377d9b',
-             X-Yummly-App-Key:'4d36a10e52910e8a729b5e25a02d1978'
+             X-Yummly-App-Key :'4d36a10e52910e8a729b5e25a02d1978'
          }
          factory.apiBase="https://api.yummly.com/v1/api/";
          factory.setQuery=function(query)
