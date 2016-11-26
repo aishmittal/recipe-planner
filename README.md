@@ -23,5 +23,11 @@ where users can see the complete instructions to prepare that recipe.
 11. Holidays/Season specific you want
 12. Holidays/Season specific you don't want
 
+
+### API Used
+[Yummly API](https://developer.yummly.com/#the-api)
+
+
+
 ### Github Page Link
 [Recipe-Planner](http://aishmittal.github.io/recipe-planner)
