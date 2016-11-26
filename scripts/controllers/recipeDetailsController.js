@@ -19,7 +19,7 @@
             function getRecipe(){
                 $rootScope.$broadcast('showProgressbar');
                 var params=UtilService.APIparams;
-                var apiBase="http://api.yummly.com/v1/api/";
+                var apiBase="https://api.yummly.com/v1/api/";
                 var queryString=apiBase+'recipe/'+$routeParams.id;
                 $http({
                     method:'GET',
