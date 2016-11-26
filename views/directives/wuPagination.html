@@ -1,0 +1,57 @@
+
+<div layout="row" layout-xs="column" flex class="pagination-directive" layout-align="center center">
+<div layout="row" hide-xs>
+        <a data-ng-href="" data-ng-click="btnClicked($event, 1-page.current)">
+            <md-button data-ng-disabled="page.current == 1" class="md-raised tiny">first page</md-button>
+        </a>
+    </div>
+    <div layout="row" hide-xs>
+        <a data-ng-href="" data-ng-click="btnClicked($event, -1)">
+            <md-button data-ng-disabled="page.current <= 1" class="md-raised tiny">back</md-button>
+        </a>
+    </div>
+        <div layout="row" layout-align="center center">
+            <md-button class="md-raised tiny " ng-disabled = "(count<=-2 && page.previous-3<=1) || (count<=-1 && page.previous-2<=1) || (count<=0 && page.previous-1<=1)" data-ng-click="pageDirect(-1)">&lt;</md-button>
+
+
+            <md-button class="md-raised tiny" ng-show = "count <=-2" data-ng-click="btnClicked($event, page.previous-page.current-3)">{{page.previous-3}}</md-button>
+
+            <md-button class="md-raised tiny" ng-show = "count <=-1" data-ng-click="btnClicked($event, page.previous-page.current-2)">{{page.previous-2}}</md-button>
+
+            <md-button class="md-raised tiny" ng-hide = "count >= 1 || page.previous<=1" data-ng-click="btnClicked($event, page.previous-page.current-1)">{{page.previous-1}}</md-button>
+
+            <md-button class="md-raised tiny" ng-hide = "count >= 2 || page.previous<=0" data-ng-click="btnClicked($event, page.previous-page.current)">{{page.previous}}</md-button>
+
+
+            <md-button class="md-raised md-warn small">{{page.current}}</md-button>
+
+            <md-button class="md-raised tiny" ng-hide = "count <= -2 || page.next>page.total" data-ng-click="btnClicked($event, page.next-page.current)">{{page.next}}</md-button>
+
+            <md-button class="md-raised tiny " ng-hide = "count <= -1 || page.next+1>page.total" data-ng-click="btnClicked($event, page.next-page.current+1)">{{page.next+1}}</md-button>
+
+            <md-button class="md-raised tiny" ng-show="count >= 1" data-ng-click="btnClicked($event, page.next-page.current+2)">{{page.next+2}}</md-button>
+
+            <md-button class="md-raised tiny " ng-show="count >=2" data-ng-click="btnClicked($event, page.next-page.current+3)">{{page.next+3}}</md-button>
+
+
+            <md-button class="md-raised tiny " ng-disabled = "(count >=2 && page.next+3 >= page.total) || (count >=1 && page.next+2 >= page.total) || (count >=0 && page.next+1 >= page.total)" data-ng-click="pageDirect(+1)">&gt;</md-button>
+    </div>
+
+    <div layout="row" hide-xs>
+        <a data-ng-href="" data-ng-click="btnClicked($event, 1)">
+            <md-button data-ng-disabled="page.current >= page.total" class="md-raised tiny">next</md-button>
+        </a>
+    </div>
+    <div layout = "row">
+    <div layout="row" hide-gt-xs>
+        <a data-ng-href="" data-ng-click="btnClicked($event, 1-page.current)">
+            <md-button data-ng-disabled="page.current == 1" class="md-raised tiny">first page</md-button>
+        </a>
+    </div>
+    <div layout="row">
+        <a data-ng-href="" data-ng-click="btnClicked($event, page.total-page.current)">
+            <md-button data-ng-disabled="page.current == page.total" class="md-raised tiny">Last page</md-button>
+        </a>
+    </div>
+    </div>
+</div>

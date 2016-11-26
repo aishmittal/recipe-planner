@@ -1,0 +1,143 @@
+
+<div layout="column" class="recipes-details-bg" ng-if="noResponse==false" style="min-height:100%">
+	<div layout="row" layout-align="center" flex="100" class="md-display-1" layout-padding>
+		{{recipe.name}}
+	</div>
+	<md-divider></md-divider>
+	<div layout="row" layout-xs="column" flex="90">
+		<div layout="column" flex="40" flex-xs="100" layout-align="start center" layout-margin>
+			
+			<img ng-src="{{recipe.images[0].hostedLargeUrl}}" class="large-recipe-image">
+			
+			<div layout="row">
+				Recipe Source : &nbsp;&nbsp;<a ng-href="http://www.{{recipe.source.sourceSiteUrl}}" target="_blank" id="link">{{recipe.source.sourceDisplayName}}
+			</a> 
+		</div>
+	</div>
+	<div layout="column" flex="20" flex-xs="100" layout-margin >
+		<div layout="column">
+			<div><span class="md-title">{{recipe.numberOfServings|number:0}} </span>Number Of Servings </div>
+
+			<div><span class="md-title">{{recipe.totalTime}} </span>Cooking</div>
+			<div ng-if="recipe.rating!=null" layout="row">Rating</div>
+			<div ng-if="recipe.rating!=null" layout="row">
+				<span class="md-title rating-number">{{recipe.rating|number:1}}<div>
+				<span class="stars-container 
+				stars-{{(recipe.rating/1)*20|number:0}}">★★★★★</span>
+				</div> </span></div>
+			</div>
+			<div layout="column">
+				<div layout="row" layout-align="center" class="md-title">
+				Flavors	
+			</div>
+			<div layout="row" layout-align="space-between center">
+				<span flex="30">Piquant</span> 
+				<div flex="60"><md-progress-linear md-mode="determinate" value="{{recipe.flavors.Piquant?recipe.flavors.Piquant*100:0}}" class="md-accent">		
+				</md-progress-linear></div>	
+			</div>
+			<div layout="row" layout-align="space-between center">
+				<span flex="30">Meaty</span> 
+				<div flex="60"><md-progress-linear md-mode="determinate" value="{{recipe.flavors.Meaty?recipe.flavors.Meaty*100:0}}" class="md-primary md-hue-2">		
+				</md-progress-linear></div>	
+			</div>
+			<div layout="row" layout-align="space-between center">
+				<span flex="30">Bitter</span> 
+				<div flex="60"><md-progress-linear md-mode="determinate" value="{{recipe.flavors.Bitter?recipe.flavors.Bitter*100:0}}" class="md-warn">		
+				</md-progress-linear></div>	
+			</div>
+			<div layout="row" layout-align="space-between center">
+				<span flex="30">Sweet</span> 
+				<div flex="60"><md-progress-linear md-mode="determinate" value="{{recipe.flavors.Sweet?recipe.flavors.Sweet*100:0}}"  class="md-accent md-hue-2">		
+				</md-progress-linear></div>	
+			</div>
+			<div layout="row" layout-align="space-between center">
+				<span flex="30">Sour</span> 
+				<div flex="60"><md-progress-linear md-mode="determinate" value="{{recipe.flavors.Sour?recipe.flavors.Sour*100:0}}" class="md-warn">		
+				</md-progress-linear></div>	
+			</div>	
+			<div layout="row" layout-align="space-between center">
+				<span flex="30">Salty</span> 
+				<div flex="60"><md-progress-linear md-mode="determinate" value="{{recipe.flavors.Salty?recipe.flavors.Salty*100:0}}">		
+				</md-progress-linear></div>	
+			</div>
+			</div>
+
+
+		</div>
+		<md-divider md-inset></md-divider>
+		<div layout="column" flex="5" flex-xs="0">
+		</div>	
+
+		<div layout="column" flex="30" flex-xs="95" layout-align="start">
+			<span class="md-title" layout-margin>Ingredients</span>
+			<div layout="column" ng-repeat="line in recipe.ingredientLines track by $index" layout-align="start" >
+				<span>&#x2713;&nbsp;{{line}}</span>
+			</div>
+			<div layout="row" layout-align="center" layout-margin>
+				<a ng-href="{{recipe.source.sourceRecipeUrl}}" target="_blank" id="link">
+				View Instructions on Source</a>
+			</div>
+			
+		</div>
+
+		<div layout="column" flex="5" flex-xs="0">
+		</div>	
+
+
+	</div>
+	<md-divider></md-divider>
+	<div layout="row" flex="100" layout-align="center center" layout-margin>
+		<div layout="column" flex="80" flex-xs="100" layout-align="center" 
+		ng-if="recipe.nutritionEstimates.length>0">
+			<div layout="row" flex layout-align="center" class="md-headline">Contents</div>
+			<md-divider flex></md-divider>
+			<div layout="row" flex="100" style="font-weight: bold">
+				<md-divider flex></md-divider>
+				<span flex="20" hide-xs layout-align="center" layout="row">ATTRIBUTE</span>
+				<md-divider  hide-xs flex></md-divider>
+				<span flex="40"  layout-align="center" layout="row">DESCRIPTION</span><md-divider flex></md-divider>
+				<span flex="20" flex-xs="30" layout-align="center" layout="row">VALUE</span><md-divider flex></md-divider>
+				<span flex="20" flex-xs="30" layout-align="center" layout="row">UNIT</span><md-divider flex></md-divider>
+			</div>
+			<md-divider flex></md-divider>
+			<div layout="row" ng-repeat="nutrient in recipe.nutritionEstimates" flex>
+				<div layout="row" flex="100" style=" word-break: break-all">
+					<md-divider flex></md-divider>
+					<span flex="20"  hide-xs layout-align="center" layout="row">{{nutrient.attribute}}</span>
+					<md-divider flex  hide-xs></md-divider>
+					<span flex="40"  layout-align="center" layout="row">{{nutrient.description}}</span><md-divider flex></md-divider>
+					<span flex="20" flex-xs="30" layout-align="center" layout="row">{{nutrient.value|number:2}}</span><md-divider flex></md-divider>
+					<span flex="20" flex-xs="30" layout-align="center" layout="row">{{nutrient.unit.plural}}&nbsp;({{nutrient.unit.abbreviation}})</span><md-divider flex>
+					
+				</md-divider>
+
+			</div>
+		</div>
+		<md-divider flex></md-divider>
+	</div>
+</div>
+
+
+<md-divider flex></md-divider>
+<div layout="row" flex="100" layout-align="center" style="padding:5px;">
+	<div layout="row">
+		<a ng-href='{{recipe.attribution.url}}' target="_blank">{{recipe.attribution.text}}</a>
+		<img alt='Yummly' ng-src='{{recipe.attribution.logo}}' style="height:20px;"/>
+	</div>
+</div>
+</div>	
+<div layout="row" layout-align="center center" flex="100" ng-if="noResponse">
+     <div layout="column"  layout-align="center center" class="response-error-bg" flex="80"
+     flex-xs="95" layout-padding>
+     <div layout="row" style="width:300px; height:300px">
+         <img class="response-error-image" src="../images/Burger_PNG_Vector_Clipart.png">
+     </div>
+     <div layout="row" class="md-subhead">
+         Sorry, No results found you can enjoy this or go back.
+     </div>
+     <div layout="row">
+         <a href="/"><md-button class="md-raised md-warn">Go Back</md-button></a>
+     </div>
+ </div>
+</div>
+<div data-ng-include="'views/footer.html'" flex></div>

@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en" ng-app="webapp">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <base href="/">
+    <title>Recipe Planner</title>
+    <link href='https://fonts.googleapis.com/css?family=Comfortaa' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
+    <link href='https://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="bower_components/angular-material/angular-material.min.css" />
+    
+
+    <link href="styles/style.css" rel="stylesheet" />
+</head>
+<body layout="column">
+   <div id="progressBar"></div>
+
+   <div wu-header></div>
+   <div wu-sidenav></div>
+   
+     <md-content ng-view class="background-page" flex ng-cloak></md-content>
+
+   </div>
+
+   <script src="bower_components/angular/angular.min.js"></script>
+   <script src="bower_components/angular-route/angular-route.min.js"></script>
+   <script src="bower_components/angular-animate/angular-animate.min.js"></script>
+   <script src="bower_components/angular-aria/angular-aria.min.js"></script>
+   <script src="bower_components/angular-material/angular-material.min.js"></script>
+   <script src="bower_components/angular-messages/angular-messages.min.js"></script>
+   <script src="bower_components/ngprogress/build/ngprogress.min.js"></script>
+   <script src="bower_components/angular-local-storage/dist/angular-local-storage.min.js"></script>
+   <script src="app.js"></script>
+
+   <script src="scripts/services/utilService.js"></script>
+   <script src="scripts/services/ngProgressbarService.js"></script>
+   <script src="scripts/directives/wuHeader.js"></script>
+   <script src="scripts/directives/wuPagination.js"></script>
+
+
+   <script src="scripts/controllers/homeController.js"></script>   
+   <script src="scripts/controllers/recipeController.js"></script>   
+   <script src="scripts/controllers/recipeDetailsController.js"></script>
+   
+
+</body>
+
+</html>

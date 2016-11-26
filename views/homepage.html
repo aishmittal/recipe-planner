@@ -1,0 +1,223 @@
+
+<div layout="column" style="min-height:100%">
+<div layout="row" layout-align="center center" layout-margin>
+<div layout="column" flex="80" flex-xs="95" class="content-background" class="md-whiteframe-4dp" >
+<div layout="row"  layout-align="center start" layout-padding>
+  <div layout="row" layout-wrap flex="100">
+        
+    <md-input-container flex="45" flex-xs="95">
+        <label>Recipe Name</label>
+        <input ng-model="queryData.q">
+    </md-input-container>
+    <span flex="5" hide-xs></span>
+    <md-input-container flex="45" flex-xs="95">
+        <label>Max Cooking Time In Minutes</label>
+        <input ng-model="queryData.maxTotalTimeInMinutes" type="number">
+    </md-input-container>
+    
+    <md-input-container layout="column" flex="45" flex-xs="95">
+    <label>Ingredients you have</label>
+    <md-chips ng-model="ingredient.allowedIngredient" md-require-match="true">
+        <md-autocomplete
+        md-selected-item="ingredient.item1"
+        md-search-text="ingredient.search1"
+        md-items="item in ingredientQuerySearch(ingredient.search1)"
+        md-item-text="item.term"
+        md-min-length="3"
+        placeholder="+Add"
+        md-autoselect>
+        <span md-highlight-text="ingredient.search1">{{item.term}}</span>
+        </md-autocomplete>
+        <md-chip-template>
+            <span>{{$chip.term || $chip}}</span>
+        </md-chip-template>
+    </md-chips>
+    </md-input-container>
+
+    <span flex="5" hide-xs></span>
+    <md-input-container layout="column" flex="45" flex-xs="95">
+    <label>Ingredients you don't have</label>
+    <md-chips ng-model="ingredient.excludedIngredient" md-require-match="true">
+        <md-autocomplete
+        md-selected-item="ingredient.item2"
+        md-search-text="ingredient.search2"
+        md-items="item in ingredientQuerySearch(ingredient.search2)"
+        md-item-text="item.term"
+        md-min-length="3"
+        placeholder="+Add"
+        md-autoselect>
+        <span md-highlight-text="ingredient.search2">{{item.term}}</span>
+        </md-autocomplete>
+        <md-chip-template>
+            <span>{{$chip.term || $chip}}</span>
+        </md-chip-template>
+    </md-chips>
+    </md-input-container>
+
+    <md-input-container layout="column" flex="45" flex-xs="95">
+    <label>Allergies</label>
+    <md-chips ng-model="allergy.allergy" md-require-match="true">
+        <md-autocomplete
+        md-selected-item="allergy.item"
+        md-search-text="allergy.search"
+        md-items="item in allergyQuerySearch(allergy.search)"
+        md-item-text="item.shortDescription"
+        md-min-length="0"
+        placeholder="+Add"
+        md-autoselect>
+        <span md-highlight-text="allergy.search">{{item.shortDescription}}</span>
+        </md-autocomplete>
+        <md-chip-template>
+            <span>{{$chip.shortDescription || $chip}}</span>
+        </md-chip-template>
+    </md-chips>
+    </md-input-container>
+    <span flex="5" hide-xs></span>
+     <md-input-container layout="column" flex="45" flex-xs="95">
+    <label>Specific Diets</label>
+    <md-chips ng-model="diet.diet" md-require-match="true" flex="45" flex-xs="95">
+        <md-autocomplete
+        md-selected-item="diet.item"
+        md-search-text="diet.search"
+        md-items="item in dietQuerySearch(diet.search)"
+        md-item-text="item.shortDescription"
+        md-min-length="0"
+        placeholder="+Add"
+        md-autoselect>
+        <span md-highlight-text="diet.search">{{item.shortDescription}}</span>
+        </md-autocomplete>
+        <md-chip-template>
+            <span>{{$chip.shortDescription || $chip}}</span>
+        </md-chip-template>
+    </md-chips>
+    </md-input-container>
+
+    <md-input-container layout="column" flex="45" flex-xs="95">
+    <label>Cuisines you like</label>
+    <md-chips ng-model="cuisine.allowedCuisine" md-require-match="true" flex="45" flex-xs="95">
+        <md-autocomplete
+        md-selected-item="cuisine.item1"
+        md-search-text="cuisine.search1"
+        md-items="item in cuisineQuerySearch(cuisine.search1)"
+        md-item-text="item.name"
+        md-min-length="0"
+        placeholder="+Add"
+        md-autoselect>
+        <span md-highlight-text="cuisine.search1">{{item.name}}</span>
+        </md-autocomplete>
+        <md-chip-template>
+          <span>{{$chip.name || $chip}}</span>
+        </md-chip-template>
+    </md-chips>
+    </md-input-container>
+    <span flex="5" hide-xs></span>
+    <md-input-container layout="column" flex="45" flex-xs="95">
+    <label>Cuisines you don't like</label>
+    <md-chips ng-model="cuisine.excludedCuisine" md-require-match="true" flex="45" flex-xs="95">
+      <md-autocomplete
+      md-selected-item="cuisine.item2"
+      md-search-text="cuisine.search2"
+      md-items="item in cuisineQuerySearch(cuisine.search2)"
+      md-item-text="item.name"
+      md-min-length="0"
+      placeholder="+Add"
+      md-autoselect>
+      <span md-highlight-text="cuisine.search2">{{item.name}}</span>
+      </md-autocomplete>
+      <md-chip-template>
+        <span>{{$chip.name || $chip}}</span>
+      </md-chip-template>
+    </md-chips>
+    </md-input-container>
+    <span flex="5" hide-xs></span>
+    <md-input-container layout="column" flex="45" flex-xs="95">
+    <label>Courses you want</label>
+    <md-chips ng-model="courses.allowedCourses" md-require-match="true" flex="45" flex-xs="95">
+        <md-autocomplete
+        md-selected-item="courses.item1"
+        md-search-text="courses.search1"
+        md-items="item in coursesQuerySearch(courses.search1)"
+        md-item-text="item.name"
+        md-min-length="0"
+        placeholder="+Add"
+        md-autoselect>
+        <span md-highlight-text="courses.search1">{{item.name}}</span>
+        </md-autocomplete>
+        <md-chip-template>
+            <span>{{$chip.name || $chip}}</span>
+        </md-chip-template>
+    </md-chips>
+    </md-input-container>
+    <span flex="5" hide-xs></span>
+    <md-input-container layout="column" flex="45" flex-xs="95">
+    <label>Courses you don't want</label>
+    <md-chips ng-model="courses.excludedCourses" md-require-match="true" flex="45" flex-xs="95" secondary-placeholder="+Add More">
+        <md-autocomplete
+        md-selected-item="courses.item2"
+        md-search-text="courses.search2"
+        md-items="item in coursesQuerySearch(courses.search2)"
+        md-item-text="item.name"
+        md-min-length="0"
+        placeholder="+Add"
+        md-autoselect>
+        <span md-highlight-text="courses.search2">{{item.name}}</span>
+        </md-autocomplete>
+        <md-chip-template>
+            <span>{{$chip.name || $chip}}</span>
+        </md-chip-template>
+    </md-chips>
+    </md-input-container>
+
+    <md-input-container layout="column" flex="45" flex-xs="95">
+    <label>Holidays/Season specific you want</label>
+    <md-chips ng-model="holidays.allowedHolidays" md-require-match="true" flex="45" flex-xs="95">
+        <md-autocomplete
+        md-selected-item="holidays.item1"
+        md-search-text="holidays.search1"
+        md-items="item in holidaysQuerySearch(holidays.search1)"
+        md-item-text="item.name"
+        md-min-length="0"
+        placeholder="+Add"
+        md-autoselect>
+        <span md-highlight-text="holidays.search1">{{item.name}}</span>
+        </md-autocomplete>
+        <md-chip-template>
+            <span>{{$chip.name || $chip}}</span>
+        </md-chip-template>
+    </md-chips>
+    </md-input-container>
+     <span flex="5" hide-xs></span>
+    <md-input-container layout="column" flex="45" flex-xs="95">
+    <label>Holidays/Season specific you don't want</label>
+    <md-chips ng-model="holidays.excludedHolidays" md-require-match="true" flex="45" flex-xs="95" secondary-placeholder="+Add More">
+        <md-autocomplete
+        md-selected-item="holidays.item2"
+        md-search-text="holidays.search2"
+        md-items="item in holidaysQuerySearch(holidays.search2)"
+        md-item-text="item.name"
+        md-min-length="0"
+        placeholder="+Add"
+        md-autoselect>
+        <span md-highlight-text="holidays.search2">{{item.name}}</span>
+        </md-autocomplete>
+        <md-chip-template>
+            <span>{{$chip.name || $chip}}</span>
+        </md-chip-template>
+    </md-chips>
+    </md-input-container>
+</div>
+   
+</div>
+<div layout="row" layout-align="center start" style="font-size:0.8em; color:grey">
+    *All fields are optional fill according to your requirment
+</div>
+<div layout="row" layout-align="center end" >
+    <md-button ng-click="recipeQuery()" class="md-warn md-raised" layout="row" layout-align="center center">
+    <md-icon md-svg-src="../images/ic_search_white_24px.svg" aria-label="search"></md-icon>Search Recipes</md-button>
+</div>
+   
+</div>    
+</div>
+
+</div>
+<div data-ng-include="'views/footer.html'" flex></div>

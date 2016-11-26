@@ -1,0 +1,39 @@
+<md-toolbar class="md-medium md-hue-2" id="header-toolbar" layout-align="center center">
+    <div layout="row"  class="md-toolbar-tools" layout-fill>
+        <h1 style="margin-left:5px;">
+            <a href="/">Recipe Planner</a>
+        </h1>
+        
+        <span class="tagline" hide-xs show-gt-xs flex><i>&ldquo;</i> Plan your recipes quickly<i>&rdquo;</i></span>
+        <span flex show-xs hide-gt-xs></span>
+
+
+        <div layout="row" class="cursor-pointer">
+            <md-menu md-offset="0 40">
+                <div layout="row" ng-click="$mdOpenMenu($event)">
+                    <span style="font-size:0.8em">Welcome</span>
+                  
+                    <md-icon>
+                        <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+                            <path fill="#FFFFFF" d="M7,10L12,15L17,10H7Z" />
+                        </svg>
+                    </md-icon>
+                </div>
+              <md-menu-content width="4">
+               <a href="/">
+                <md-menu-item>
+                  
+                  <md-button ng-click="ctrl.redial($event)">
+                    Go to Home
+                  </md-button>
+                 
+                </md-menu-item>
+                 </a>
+              </md-menu-content>
+        
+   
+           </md-menu>
+        </div>
+
+    </div>
+</md-toolbar>

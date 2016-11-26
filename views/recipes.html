@@ -1,0 +1,61 @@
+<div layout="column" style="min-height:100%">
+<div layout="column" class="recipes-bg" ng-show="pageLoaded && noResponse==false" style="min-height:100%"> 
+
+    <div class="sub-toolbar">
+      <div class="md-flex md-title" layout-margin>Search Results (total {{totalResults}})
+      </div>
+    </div>
+  
+
+<div layout="row" layout-align="space-around" layout-margin  layout-wrap flex="100">
+    <div md-whiteframe="4dp" layout="row" flex="20" flex-xs="80" flex-sm="30" layout-align="center start" ng-repeat='recipe in recipes' class="recipe-bg">
+
+        <a data-ng-href="/recipes/{{recipe.id}}" target="_blank">
+        <div layout="row" layout-align="center center" flex layout-margin>
+        <div layout="column" layout-align="start center">
+            
+            <div layout="row" layout-align="center center" style="max-width: 300px;max-height: 300px;" flex>
+                    <img data-ng-src="{{recipe.smallImageUrls[0]}}" class="small-image">
+            </div>
+            <div class="recipe-name" layout="row" flex="90">
+               {{recipe.recipeName}}
+            </div>
+            <div layout="row" flex="100" layout-align="space-between">
+                <div layout="row" flex="45" layout-align="left">
+                    <span>{{recipe.ingredients.length}}&nbsp;</span>Ingridients 
+                </div>
+                <div flex="10" layout-align="center">&nbsp;&nbsp;|&nbsp;&nbsp;</div> 
+                <div layout="row" flex="40" layout-align="right">
+                <span>{{recipe.totalTimeInSeconds/60|number:0}}&nbsp;</span>Minutes
+                </div>
+            </div>
+           
+            <div layout="row" flex="100">
+                <span  class="md-title source-name">{{recipe.sourceDisplayName}}</span>
+            </div>
+        </div>
+        </div>
+        </a>
+    </div>
+   
+</div>
+
+ <div layout="row" data-ng-show="settings.enablePagination" wu-pagination></div>
+
+</div>
+<div layout="row" layout-align="center center" flex="100" ng-if="noResponse">
+     <div layout="column"  layout-align="center center" class="response-error-bg" flex="80"
+     flex-xs="95" layout-padding>
+     <div layout="row" style="width:300px; height:300px">
+         <img class="response-error-image" src="../images/Burger_PNG_Vector_Clipart.png">
+     </div>
+     <div layout="row" class="md-subhead">
+         Sorry, No results found you can enjoy this or go back.
+     </div>
+     <div layout="row">
+         <a href="/"><md-button class="md-raised md-warn">Go Back</md-button></a>
+     </div>
+ </div>
+</div>
+</div>
+<div data-ng-include="'views/footer.html'" flex></div>
