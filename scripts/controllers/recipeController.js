@@ -40,7 +40,7 @@
                      headers:{
                         X-Yummly-App-ID  :'d3377d9b',
                         X-Yummly-App-Key :'4d36a10e52910e8a729b5e25a02d1978'
-                    }}})
+                    }})
                 .then(function(response) {
                     $rootScope.$broadcast('endProgressbar');
                     $scope.recipes= response.data.matches;
