@@ -20,7 +20,7 @@
              _app_id :'d3377d9b',
              _app_key:'4d36a10e52910e8a729b5e25a02d1978'
          }
-         factory.apiBase="http://api.yummly.com/v1/api/";
+         factory.apiBase="https://api.yummly.com/v1/api/";
          factory.setQuery=function(query)
          {
             factory.queryString=query;
