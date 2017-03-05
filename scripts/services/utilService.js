@@ -18,7 +18,7 @@
          factory.queryString="";
          factory.APIparams={
              _app_id :'d3377d9b',
-             _app_key:'4d36a10e52910e8a729b5e25a02d1978'
+             _app_key:'f304dd00a30e10cc99d59733ee1c7410'
          }
          factory.apiBase="http://api.yummly.com/v1/api/";
          factory.setQuery=function(query)

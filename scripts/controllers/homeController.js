@@ -194,7 +194,49 @@
                 return res;
 
             }
+
+            // function exclIngridients(incIng)
+            // {
+            //     var ing= UtilService.ingredient;
+            //     var exIng =[];
+            //     var j=0;
+            //     for(var i=0;i<ing.length;i++)
+            //     {
+            //         var flag=0;
+            //         for(var k=0;k<incIng.length;k++)
+            //         {
+            //             if(incIng[k].searchValue == ing[i].searchValue)
+            //             {
+            //                 flag=1;
+            //                 break;
+            //             }
+            //         }
+            //         if(flag==0)
+            //         {
+            //             exIng.push(ing[i]);
+            //         }    
+
+            //     }
+            //     return exIng
+            // }
+
+            // function exclIngridients(incIng)
+            // {
+            //     var ing = UtilService.ingredient;
+            //     alert(ing.length)
+                
+            //     for(var i=0;i<incIng.length;i++)
+            //     {
+            //         idx=angular.lowercase(ing.searchValue).indexOf(incIng[i].searchValue); 
+            //         if(idx > -1)
+            //             ing.splice(idx,1);
+
+            //     }
+            //     return ing
+            // }
+
 function getRecipes(params){              
+                //var exIng=exclIngridients($scope.ingredient.allowedIngredient)
                 var queryString=UtilService.apiBase+'recipes?q='+escape($scope.queryData.q?$scope.queryData.q:'')+
                 "&maxTotalTimeInSeconds="+($scope.queryData.maxTotalTimeInMinutes?$scope.queryData.maxTotalTimeInMinutes*60:null)+
                 "&requirePictures=true"+

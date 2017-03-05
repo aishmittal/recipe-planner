@@ -1,39 +1,49 @@
 <md-toolbar class="md-medium md-hue-2" id="header-toolbar" layout-align="center center">
-    <div layout="row"  class="md-toolbar-tools" layout-fill>
-        <h1 style="margin-left:5px;">
-            <a href="/">Recipe Planner</a>
-        </h1>
-        
-        <span class="tagline" hide-xs show-gt-xs flex><i>&ldquo;</i> Plan your recipes quickly<i>&rdquo;</i></span>
-        <span flex show-xs hide-gt-xs></span>
+  <div layout="row"  class="md-toolbar-tools" layout-fill>
+    
+    <!--<img src="../images/icon.png"/ height="32" width="32">-->
+    <h1 style="margin-left:5px;">
+
+      <a href="/" id="site-title">Recipify</a>
+    </h1>
+
+    <span class="tagline" hide-xs show-gt-xs flex><i>&ldquo;</i> Plan your recipes quickly<i>&rdquo;</i></span>
+    <span flex show-xs hide-gt-xs></span>
 
 
-        <div layout="row" class="cursor-pointer">
-            <md-menu md-offset="0 40">
-                <div layout="row" ng-click="$mdOpenMenu($event)">
-                    <span style="font-size:0.8em">Welcome</span>
-                  
-                    <md-icon>
-                        <svg style="width:24px;height:24px" viewBox="0 0 24 24">
-                            <path fill="#FFFFFF" d="M7,10L12,15L17,10H7Z" />
-                        </svg>
-                    </md-icon>
-                </div>
-              <md-menu-content width="4">
-               <a href="/">
-                <md-menu-item>
-                  
-                  <md-button ng-click="ctrl.redial($event)">
-                    Go to Home
-                  </md-button>
-                 
-                </md-menu-item>
-                 </a>
-              </md-menu-content>
-        
-   
-           </md-menu>
+    <div layout="row" class="cursor-pointer">
+      <md-menu md-offset="0 40">
+        <div layout="row" ng-click="$mdOpenMenu($event)">
+          <span style="font-size:0.8em">Welcome <span id="usrname"></span> </span>
+
+          <md-icon>
+            <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+              <path fill="#FFFFFF" d="M7,10L12,15L17,10H7Z" />
+            </svg>
+          </md-icon>
         </div>
+        <md-menu-content width="3">
+         <a href="/">
+          <md-menu-item layout="row" layout-align="center" flex="100">
+          
+            <md-button>
+              Go to Home
+            </md-button>
+         
+        </md-menu-item>
+         </a>
+        <md-menu-item>
+            <md-button>
+              <fb:login-button scope="public_profile,email" onlogin="checkLoginState()" onlogout="checkLoginState()" data-size="large" style="margin-left: 25%;" data-auto-logout-link="true" onclick="checkLoginState()">
+            </fb:login-button>
+            </md-button>  
+        </md-menu-item>
+    
+    </md-menu-content>
 
-    </div>
+
+  </md-menu>
+</div>
+
+</div>
 </md-toolbar>
